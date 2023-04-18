@@ -31,7 +31,6 @@ export const Welcome = () => {
     }, []);
 
     const handlePlay = () => {
-        console.log('hola mundo')
         gsap.to(welcome.current, {
             'outline-offset': '0',
             duration: 1,
