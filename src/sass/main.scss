@@ -3,7 +3,9 @@
 
 // Componentes
 @import "/src/components/Button/Button.module.scss";
+@import "/src/components/GameCard/GameCard.module.scss";
 
 // Pages
 @import "./pages/welcome";
 @import "./pages/name";
+@import "./pages/game";
