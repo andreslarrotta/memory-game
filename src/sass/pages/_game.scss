@@ -9,8 +9,16 @@
         align-items: center;
         justify-content: flex-end;
 
+        @media (max-width: 800px) {
+            justify-content: center;
+        }
+
         &_container {
             padding-right: 2rem;
+
+            @media (max-width: 800px) {
+                padding-right: 0;
+            }
         }
 
         span {
@@ -30,6 +38,10 @@
         padding: 100px 0;
         display: flex;
         justify-content: center;
+
+        @media (max-width: 800px) {
+            padding: 30px 0;
+        }
 
         &_container {
             display: grid;
