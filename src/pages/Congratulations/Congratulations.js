@@ -11,7 +11,7 @@ export const Congratulations = () => {
                 <img src={imageGame} alt='congratulations' />
                 <h2>Congratulations !!!!</h2>
                 <h1>Andres Larrotta</h1>
-                <Button />
+                <Button text={'Play again'} color={'white'} />
             </div>
         </div>
     )

@@ -22,7 +22,7 @@ export const Welcome = () => {
                     </div>
                     <div className='welcome_image--square'></div>
                 </div>
-                <Button />
+                <Button text={'Play'} />
             </div>
             <div className='welcome_name'>
                 <p>Andres F. Larrotta Pino</p>

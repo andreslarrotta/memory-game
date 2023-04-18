@@ -45,6 +45,20 @@
         backface-visibility: hidden;
     }
 
+    &.button_white {
+        .button_front {
+            background-color: white;
+            border: 3px solid black;
+            color: black;
+        }
+
+        .button_back {
+            background-color: black;
+            border: 3px solid white;
+            color: white;
+        }
+    }
+
     &_front {
         background-color: black;
         color: white;

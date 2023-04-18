@@ -9,7 +9,7 @@ export const Name = () => {
             <div className='name_container'>
                 <h2>Whats is your name?</h2>
                 <input type='text' title='name' name='name' autoFocus />
-                <Button />
+                <Button text={'Continue'} />
             </div>
         </div>
     )

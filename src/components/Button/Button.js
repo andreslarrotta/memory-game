@@ -1,15 +1,15 @@
 import React from 'react'
 
-export const Button = () => {
+export const Button = ({ text, color }) => {
 
     return (
-        <button className='button'>
+        <button className={`button ${color === 'white' ? 'button_white' : ''}`}>
             <div className='button_container'>
                 <div className='button_front'>
-                    Play
+                    {text}
                 </div>
                 <div className='button_back'>
-                    Play
+                    {text}
                 </div>
             </div>
         </button>
