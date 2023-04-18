@@ -8,6 +8,10 @@
     align-items: center;
     justify-content: center;
 
+    @media (max-width: 800px) {
+        outline-offset: -14px;
+    }
+
     &_container {
         h1 {
             font-family: "DM Sans";
@@ -17,6 +21,11 @@
             line-height: 78px;
             color: #000000;
             margin: 0;
+
+            @media (max-width: 800px) {
+                font-size: 40px;
+                text-align: center;
+            }
         }
 
         h2 {
@@ -28,6 +37,11 @@
             color: #000000;
             text-align: center;
             margin: 0;
+
+            @media (max-width: 800px) {
+                font-size: 20px;
+                text-align: center;
+            }
         }
     }
 
@@ -42,6 +56,10 @@
             height: 100px;
             background: black;
             border-radius: 10px;
+
+            @media (max-width: 800px) {
+                margin: 10px;
+            }
 
             img {
                 width: 100px;
