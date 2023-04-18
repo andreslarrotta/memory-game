@@ -1,0 +1,51 @@
+.congratulations {
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 800px) {
+        outline-offset: -14px;
+    }
+
+    &_container {
+        text-align: center;
+
+        img {
+            margin: 1rem 0;
+        }
+        
+        h1 {
+            font-family: "DM Sans";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 60px;
+            line-height: 78px;
+            color: white;
+            margin: 0;
+
+            @media (max-width: 800px) {
+                font-size: 40px;
+                text-align: center;
+            }
+        }
+
+        h2 {
+            font-family: "DM Sans";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 35px;
+            line-height: 46px;
+            color: white;
+            text-align: center;
+            margin: 0;
+
+            @media (max-width: 800px) {
+                font-size: 20px;
+                text-align: center;
+            }
+        }
+    }
+}

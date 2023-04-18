@@ -6,6 +6,7 @@ import {
 import { Welcome } from './pages/Welcome';
 import { Name } from './pages/Name';
 import { Game } from './pages/Game'
+import { Congratulations } from './pages/Congratulations/Congratulations';
 import './sass/main.scss'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path='/' element={<Welcome />} />
         <Route path='/name' element={<Name />} />
         <Route path='/game' element={<Game />} />
+        <Route path='/congrats' element={<Congratulations />} />
       </Routes>
     </div>
   );
