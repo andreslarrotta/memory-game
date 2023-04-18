@@ -1,0 +1,60 @@
+.button {
+    background-color: transparent;
+    perspective: 1000px;
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 33px;
+    text-align: center;
+    color: #ffffff;
+    width: 100%;
+    height: 50px;
+    border: none;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 1.5rem 0;
+
+    &:hover &_container {
+        transform: rotateY(180deg);
+        cursor: pointer;
+    }
+
+    &_container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+    }
+
+    &_front,
+    &_back {
+        position: absolute;
+        height: 100%;
+        width: auto;
+        left: 50%;
+        padding: 0 1.5rem;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    &_front {
+        background-color: black;
+        color: white;
+        transform: translate(-50%, 0);
+    }
+
+    &_back {
+        background-color: white;
+        border: 3px solid black;
+        color: black;
+        transform: rotateY(180deg) translate(50%, 0);
+    }
+}

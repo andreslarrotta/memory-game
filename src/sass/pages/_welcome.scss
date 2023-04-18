@@ -1,0 +1,47 @@
+.welcome {
+    background-color: #f5f5f5;
+    width: 100vw;
+    height: 100vh;
+    outline: 30px solid black;
+    outline-offset: -30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &_container {
+        h1 {
+            font-family: "DM Sans";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 60px;
+            line-height: 78px;
+            color: #000000;
+            margin: 0;
+        }
+
+        h2 {
+            font-family: "DM Sans";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 35px;
+            line-height: 46px;
+            color: #000000;
+            text-align: center;
+            margin: 0;
+        }
+    }
+
+    &_image {
+        display: flex;
+        align-content: center;
+        justify-content: space-evenly;
+        margin-top: 1rem;
+
+        &--square {
+            width: 100px;
+            height: 100px;
+            background: black;
+            border-radius: 10px;
+        }
+    }
+}
