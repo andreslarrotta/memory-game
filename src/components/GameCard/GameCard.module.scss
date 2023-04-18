@@ -9,7 +9,9 @@
     }
 
     @media (max-width: 800px) {
-        margin: 10px;
+        margin: 5px;
+        width: 100px;
+        height: 100px;
     }
 
     img {
@@ -77,6 +79,11 @@
             font-size: 25px;
             line-height: 33px;
             color: #000000;
+
+            @media (max-width: 800px) {
+                width: 100px;
+                height: 100px;
+            }
         }
 
         .game-card_front {
@@ -125,6 +132,10 @@
         line-height: 33px;
         color: #000000;
         border-radius: 10px;
+
+        @media (max-width: 800px) {
+            font-size: 20px;
+        }
 
         &:hover {
             background-color: black;

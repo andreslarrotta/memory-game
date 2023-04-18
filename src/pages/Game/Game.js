@@ -28,6 +28,12 @@ export const Game = () => {
                     <GameCard />
                     <GameCard />
                     <GameCard />
+                    <GameCard />
+                    <GameCard />
+                    <GameCard />
+                    <GameCard />
+                    <GameCard />
+                    <GameCard />
                 </div>
             </div>
         </div>
