@@ -8,6 +8,10 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 2;
 
         @media (max-width: 800px) {
             justify-content: center;
@@ -35,13 +39,13 @@
     &_body {
         width: 100%;
         min-height: 100vh;
-        padding: 40px 0;
+        padding: 200px 0;
         display: flex;
         justify-content: center;
         opacity: 0;
 
         @media (max-width: 800px) {
-            padding: 30px 0;
+            padding: 150px 0;
         }
 
         &_container {

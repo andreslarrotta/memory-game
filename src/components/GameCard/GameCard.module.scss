@@ -72,7 +72,12 @@
 
     &.active {
         &.correct {
+            
             .game-card_back {
+                transform: scale(0);
+                display: none;
+            }
+            .game-card_front {
                 transform: scale(0);
                 display: none;
             }

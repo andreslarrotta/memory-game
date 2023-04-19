@@ -7,8 +7,10 @@ import { useGame } from '../../context/game-context';
 export const Game = () => {
     const headerGame = useRef()
     const bodyGame = useRef()
-    const { cards, setUniqueElements, saveCards } = useGame()
+    const { cards, setUniqueElements, saveCards, win } = useGame()
     const [prev, setPrev] = useState(-1)
+    const [rights, setRights] = useState(0)
+    const [errors, setErrors] = useState(0)
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
@@ -37,16 +39,31 @@ export const Game = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
+    useEffect(() => {
+        if (win) {
+            gsap.to(headerGame.current, {
+                duration: 1,
+                height: '100vh',
+                ease: "expo.out",
+                onComplete: () => {
+                    window.location.href = '/congrats'
+                }
+            });
+        }
+    }, [win])
+
     const handleCheck = (current) => {
         if (cards[current].id === cards[prev].id) {
             cards[current].stat = "correct"
             cards[prev].stat = "correct"
             saveCards(cards)
             setPrev(-1)
+            setRights(rights + 1)
         } else {
             cards[current].stat = "wrong"
             cards[prev].stat = "wrong"
             saveCards(cards)
+            setErrors(errors + 1)
             setTimeout(() => {
                 cards[current].stat = ""
                 cards[prev].stat = ""
@@ -69,10 +86,12 @@ export const Game = () => {
     return (
         <div className='game'>
             <div className='game_header' ref={headerGame}>
-                <div className='game_header_container'>
-                    <span>Aciertos: 2</span>
-                    <span>Errores: 2</span>
-                </div>
+                {
+                    !win && <div className='game_header_container'>
+                        <span>Aciertos: {rights}</span>
+                        <span>Errores: {errors}</span>
+                    </div>
+                }
             </div>
             <div className='game_body' ref={bodyGame}>
                 <div className='game_body_container'>

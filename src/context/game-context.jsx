@@ -1,10 +1,11 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 
 const GameContext = React.createContext();
 
 export const GameProvider = (props) => {
   const [uniqueElementsArray, setUniqueElementsArray] = useState([]);
   const [cards, setCards] = useState();
+  const [win, setWin] = useState(false);
 
   const getAnimals = async () => {
     const endpoint =
@@ -40,10 +41,10 @@ export const GameProvider = (props) => {
     });
 
     data.forEach((element, index) => {
-        const cardElement = new CardElement(element, index);
-        uniqueElementsArray.push(cardElement);
-        setUniqueElementsArray(uniqueElementsArray);
-      });
+      const cardElement = new CardElement(element, index);
+      uniqueElementsArray.push(cardElement);
+      setUniqueElementsArray(uniqueElementsArray);
+    });
 
     setCards(uniqueElementsArray.sort(() => Math.random() - 0.5));
   };
@@ -52,13 +53,24 @@ export const GameProvider = (props) => {
     setCards([...cards]);
   };
 
+  useEffect(() => {
+    /* console.log("cambio en cards", cards); */
+    if (cards) {
+      const result = cards.filter((card) => card.stat !== "correct");
+      if (result.length === 0) {
+        setWin(true);
+      }
+    }
+  }, [cards]);
+
   const value = useMemo(() => {
     return {
       cards,
+      win,
       saveCards,
       setUniqueElements,
     };
-  }, [cards, setUniqueElements]);
+  }, [win, cards, setUniqueElements]);
 
   return <GameContext.Provider value={value} {...props} />;
 };
