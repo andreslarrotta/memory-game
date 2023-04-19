@@ -9,7 +9,7 @@ export const GameProvider = (props) => {
 
   const getAnimals = async () => {
     const endpoint =
-      "https://fed-team.modyo.cloud/api/content/spaces/animals/types/game/entries?per_page=4";
+      "https://fed-team.modyo.cloud/api/content/spaces/animals/types/game/entries?per_page=6";
     try {
       const response = await fetch(endpoint, { cache: "no-cache" });
       if (response.ok) {
