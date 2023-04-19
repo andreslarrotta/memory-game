@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 
 const GameContext = React.createContext();
 
@@ -20,18 +20,6 @@ export const GameProvider = (props) => {
     }
   };
 
-  const shuffleCards = (array) => {
-    const length = array.length;
-    for (let i = length; i > 0; i--) {
-      const randomIndex = Math.floor(Math.random() * i);
-      const currentIndex = i - 1;
-      const temp = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temp;
-    }
-    return array;
-  };
-
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const setUniqueElements = async () => {
     const data = await getAnimals();
@@ -41,28 +29,33 @@ export const GameProvider = (props) => {
         this.id = id;
         this.image = data.fields.image.url;
         this.name = data.meta.name;
+        this.stat = "";
       }
     }
 
     data.forEach((element, index) => {
       const cardElement = new CardElement(element, index);
       uniqueElementsArray.push(cardElement);
-      uniqueElementsArray.push(cardElement);
       setUniqueElementsArray(uniqueElementsArray);
     });
 
-    console.log(shuffleCards(uniqueElementsArray));
+    data.forEach((element, index) => {
+        const cardElement = new CardElement(element, index);
+        uniqueElementsArray.push(cardElement);
+        setUniqueElementsArray(uniqueElementsArray);
+      });
 
-    setCards(shuffleCards(uniqueElementsArray));
+    setCards(uniqueElementsArray.sort(() => Math.random() - 0.5));
   };
 
-  useEffect(() => {}, []);
-
-  /* console.log("hola", uniqueElements); */
+  const saveCards = (cards) => {
+    setCards([...cards]);
+  };
 
   const value = useMemo(() => {
     return {
       cards,
+      saveCards,
       setUniqueElements,
     };
   }, [cards, setUniqueElements]);

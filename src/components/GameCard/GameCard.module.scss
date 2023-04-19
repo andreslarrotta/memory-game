@@ -55,8 +55,36 @@
         width: 60px;
         transform: rotateY(180deg) translate(50%, 0);
     }
+    @keyframes errorAnimation {
+        0% {
+            transform: rotateY(180deg) translate(50%, 0) rotateZ(-10deg);
+        }
+        25% {
+            transform: rotateY(180deg) translate(50%, 0) rotateZ(10deg);
+        }
+        50% {
+            transform: rotateY(180deg) translate(50%, 0) rotateZ(-10deg);
+        }
+        100% {
+            transform: rotateY(180deg) translate(50%, 0) rotateZ(10deg);
+        }
+    }
 
     &.active {
+        &.correct {
+            .game-card_back {
+                transform: scale(0);
+                display: none;
+            }
+        }
+
+        &.wrong {
+            .game-card_back {
+                animation-name: errorAnimation;
+                animation-duration: 1s;
+            }
+        }
+
         .game-card_container {
             transform: rotateY(180deg);
         }
@@ -79,6 +107,7 @@
             font-size: 25px;
             line-height: 33px;
             color: #000000;
+            transition: transform 1s;
 
             @media (max-width: 800px) {
                 width: 100px;

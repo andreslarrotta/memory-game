@@ -1,25 +1,23 @@
 import React, { useRef } from 'react'
 
-export const GameCard = ({ data }) => {
+export const GameCard = ({ data, handleClick, id }) => {
+    const itemClass = data.stat ? " active " + data.stat : ""
     const card = useRef();
     const style = {
         'background': `url(${data.image})`,
-        'background-size': 'cover',
-        'background-position': 'center',
+        'backgroundSize': 'cover',
+        'backgroundPosition': 'center',
     }
-    const handleActive = () => {
-        if (card.current.classList.contains("active")) {
-            card.current.classList.remove("active");
-        } else {
-            card.current.classList.add("active");
-        }
+
+    const handleActive = (id) => {
+        handleClick(id)
     }
 
     return (
         <div
-            className='game-card'
+            className={`game-card ${itemClass}`}
             ref={card}
-            onClick={handleActive}
+            onClick={() => handleActive(id)}
         >
             <div className='game-card_container'>
                 <div className='game-card_front'>
