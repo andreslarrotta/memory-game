@@ -2,19 +2,20 @@ import React, { useLayoutEffect, useRef, useState } from 'react'
 import { gsap } from "gsap";
 
 import { Button } from '../../components/Button/Button'
+import { useGame } from '../../context/game-context';
 
 export const Name = () => {
     const nameContent = useRef()
     const inputName = useRef()
     const [error, setError] = useState(false)
+    const { saveName } = useGame()
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
 
             gsap.from(nameContent.current, {
                 opacity: 0,
-                duration: 3,
-                delay: 2,
+                duration: 4,
                 ease: "expo.out"
             });
 
@@ -31,6 +32,8 @@ export const Name = () => {
                 setError(false)
             }, 3000)
         } else {
+            saveName(valueInput)
+
             gsap.to(nameContent.current, {
                 opacity: 0,
                 duration: 3,

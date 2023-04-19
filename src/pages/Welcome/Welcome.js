@@ -14,15 +14,14 @@ export const Welcome = () => {
             gsap.from(welcome.current, {
                 'outline-offset': '0',
                 duration: 4,
-                delay: 1,
                 ease: "expo.out",
-                onComplete: () => {
-                    gsap.to(welcomeContent.current, {
-                        opacity: 1,
-                        duration: 3,
-                        ease: "expo.out"
-                    });
-                }
+            });
+
+            gsap.to(welcomeContent.current, {
+                opacity: 1,
+                duration: 3,
+                delay: 1,
+                ease: "expo.out"
             });
 
         }, [welcome, welcomeContent]);
@@ -38,7 +37,7 @@ export const Welcome = () => {
             onComplete: () => {
                 gsap.to(welcomeContent.current, {
                     opacity: 0,
-                    duration: 1,
+                    duration: 0.5,
                     ease: "expo.out",
                     onComplete: () => {
                         window.location.href = '/name'

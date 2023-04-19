@@ -7,6 +7,8 @@
     justify-content: center;
 
     &_container {
+        text-align: center;
+
         h2 {
             font-family: "DM Sans";
             font-style: normal;
@@ -26,7 +28,7 @@
         input {
             background: #000000;
             border-radius: 19px;
-            width: 100%;
+            width: auto;
             height: 50px;
             margin: 0.5rem 0;
             font-family: "DM Sans";

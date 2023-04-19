@@ -6,6 +6,7 @@ export const GameProvider = (props) => {
   const [uniqueElementsArray, setUniqueElementsArray] = useState([]);
   const [cards, setCards] = useState();
   const [win, setWin] = useState(false);
+  const [user, setUser] = useState("");
 
   const getAnimals = async () => {
     const endpoint =
@@ -53,8 +54,21 @@ export const GameProvider = (props) => {
     setCards([...cards]);
   };
 
+  const saveName = (name) => {
+    localStorage.setItem("userGame", name);
+    setUser(name);
+  };
+
+  const getName = () => {
+    const userName = localStorage.getItem("userGame");
+    if (userName) {
+      return userName;
+    } else {
+      return "";
+    }
+  };
+
   useEffect(() => {
-    /* console.log("cambio en cards", cards); */
     if (cards) {
       const result = cards.filter((card) => card.stat !== "correct");
       if (result.length === 0) {
@@ -63,14 +77,21 @@ export const GameProvider = (props) => {
     }
   }, [cards]);
 
+  useEffect(() => {
+    setUser(user);
+  }, [user]);
+
   const value = useMemo(() => {
     return {
       cards,
       win,
+      user,
       saveCards,
+      getName,
       setUniqueElements,
+      saveName,
     };
-  }, [win, cards, setUniqueElements]);
+  }, [win, user, cards, setUniqueElements]);
 
   return <GameContext.Provider value={value} {...props} />;
 };
