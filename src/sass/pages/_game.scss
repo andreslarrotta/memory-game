@@ -48,11 +48,11 @@
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             gap: 15px;
+            grid-template-rows: min-content min-content min-content min-content;
 
             @media (max-width: 800px) {
                 grid-template-columns: 1fr 1fr 1fr;
                 gap: 10px;
-                grid-template-rows: min-content min-content min-content min-content;
             }
         }
     }

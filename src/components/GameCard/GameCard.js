@@ -1,8 +1,12 @@
 import React, { useRef } from 'react'
 
-export const GameCard = () => {
+export const GameCard = ({ data }) => {
     const card = useRef();
-
+    const style = {
+        'background': `url(${data.image})`,
+        'background-size': 'cover',
+        'background-position': 'center',
+    }
     const handleActive = () => {
         if (card.current.classList.contains("active")) {
             card.current.classList.remove("active");
@@ -21,7 +25,7 @@ export const GameCard = () => {
                 <div className='game-card_front'>
                     Modyo
                 </div>
-                <div className='game-card_back'></div>
+                <div className='game-card_back' style={style}></div>
             </div>
         </div>
     )

@@ -2,11 +2,12 @@ import React, { useLayoutEffect, useEffect, useRef } from 'react'
 import { gsap } from "gsap";
 
 import { GameCard } from '../../components/GameCard'
+import { useGame } from '../../context/game-context';
 
 export const Game = () => {
     const headerGame = useRef()
     const bodyGame = useRef()
-    const arrayTest = [1, 2, 3, 4,]
+    const { cards, setUniqueElements } = useGame()
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
@@ -31,10 +32,9 @@ export const Game = () => {
     }, []);
 
     useEffect(() => {
-
-
-    }, [])
-
+        setUniqueElements()
+        console.log('card', cards)
+    }, [cards, setUniqueElements])
 
     return (
         <div className='game'>
@@ -47,8 +47,8 @@ export const Game = () => {
             <div className='game_body' ref={bodyGame}>
                 <div className='game_body_container'>
                     {
-                        arrayTest.map(() => {
-                            return <GameCard />
+                        cards?.map((card, index) => {
+                            return <GameCard key={index} data={card} />
                         })
                     }
                 </div>
